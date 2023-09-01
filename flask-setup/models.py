@@ -5,14 +5,7 @@ from flask_login import UserMixin
 
 db = SQLAlchemy()
 
-class IncidentReport(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.String(20), nullable=False)
-    time = db.Column(db.String(20), nullable=False)
-    location = db.Column(db.String(100), nullable=False)
-    parties_involved = db.Column(db.String(200), nullable=False)
-    description = db.Column(db.Text, nullable=False)
-    
+
 class Student(db.Model, UserMixin):
     __tablename__ = 'students'
 
@@ -145,6 +138,7 @@ def create_sample_data():
     for data in student_data:
         student = Student(**data)
         db.session.add(student)
+        #db.flush() # Flush will make the student data to finsihs its transaction and commit it to the database
 
     # Create and insert faculty data
     faculty_data = [
@@ -207,6 +201,22 @@ def create_sample_data():
         },
         # Add more admin data as needed
     ]
+    
+    # ... (other imports and class definitions)
+
+class IncidentReport(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.String(20), nullable=False)
+    time = db.Column(db.String(20), nullable=False)
+    location = db.Column(db.String(100), nullable=False)
+    parties_involved = db.Column(db.String(200), nullable=False)
+    description = db.Column(db.Text, nullable=False)
+
+# ... (other functions and create_sample_data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
     
     for data in admin_data:
         admin = Admin(**data)

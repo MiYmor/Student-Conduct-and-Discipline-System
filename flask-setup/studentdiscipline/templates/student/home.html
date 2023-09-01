@@ -8,9 +8,10 @@
   </head>
   <body>
     <div>
-      <h2>Welcome to User Interface</h2>
+      <h2>Welcome to User Page</h2>
       {% if authenticated %}
       <li><a href="{{ url_for('logout') }}">Logout</a></li>
+      <li><a href="{{ url_for('report_incident') }}">Report an Incident</a></li>
       {% endif %}
 
       <div id="profile-data"></div>
