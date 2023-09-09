@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/output.css') }}"
+    />
+    <style>
+      /* Add Sans Pro font */
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      a,
+      ul,
+      ol,
+      li,
+      blockquote,
+      pre,
+      code {
+        font-family: 'Sans Pro', sans-serif;
+      }
+
+      /* Add padding to form elements */
+      label,
+      input,
+      textarea {
+        margin-bottom: 10px;
+      }
+    </style>
+    <title>Report Incident</title>
+  </head>
+  <body class="flex-container report-form-bg">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      {% if authenticated %}
+      <a href="{{ url_for('student_home') }}" class="block p-4">Users Page</a>
+      <a href="{{ url_for('logout') }}" class="block p-4">Logout</a>
+      <a href="{{ url_for('report_incident') }}" class="block p-4"
+        >Report an Incident</a
+      >
+      <a href="{{ url_for('viewing_report') }}" class="block p-4"
+        >View Reports</a
+      >
+      {% endif %}
+    </div>
+
+    <!-- Content -->
+    <div class="flex-grow p-4">
+      <h1>Report Incident Form</h1>
+      <form method="POST" action="{{ url_for('report_incident') }}">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required /><br />
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required /><br />
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required /><br />
+
+        <label for="parties_involved">Parties Involved:</label>
+        <input
+          type="text"
+          id="parties_involved"
+          name="parties_involved"
+          required
+        /><br />
+
+        <label for="description">Description:</label><br />
+        <textarea
+          id="description"
+          name="description"
+          rows="4"
+          cols="50"
+          required
+        ></textarea
+        ><br />
+
+        <input type="submit" value="Submit" />
+      </form>
+
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %}
+      <ul class="flashes">
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+    </div>
+  </body>
+</html>

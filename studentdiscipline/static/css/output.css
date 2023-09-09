@@ -1,0 +1,99 @@
+/* FontStyle */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+ol,
+li,
+blockquote,
+pre,
+code {
+  font-family: 'Sans Pro', sans-serif;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #444; /* Darker background */
+  color: #ddd; /* Lighter text color */
+  min-width: 100px;
+  max-width: 250px;
+  height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.sidebar a {
+  color: #ddd; /* Set the text color to light grey */
+}
+
+/* Content Styles */
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.flex-grow {
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.center-table {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+/* Table Styles */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #f9f9f9; /* Slight grey background */
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #555; /* Darker header background */
+  color: #ddd;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+.table-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Background Gradients */
+.view-report-bg {
+  background: linear-gradient(135deg, #f9f9f9, #ddd);
+}
+
+.home-bg {
+  background: linear-gradient(135deg, #f9f9f9, #ddd);
+}
+
+.report-form-bg {
+  background: linear-gradient(135deg, #f9f9f9, #ddd);
+}

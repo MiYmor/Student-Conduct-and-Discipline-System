@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/output.css') }}"
+    />
+    <style>
+      /* Add Sans Pro font */
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      a,
+      ul,
+      ol,
+      li,
+      blockquote,
+      pre,
+      code {
+        font-family: 'Sans Pro', sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="flex-container view-report-bg">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      {% if authenticated %}
+      <a href="{{ url_for('student_home') }}" class="block p-4">Users Page</a>
+      <a href="{{ url_for('logout') }}" class="block p-4">Logout</a>
+      <a href="{{ url_for('report_incident') }}" class="block p-4"
+        >Report an Incident</a
+      >
+      <a href="{{ url_for('viewing_report') }}" class="block p-4"
+        >View Reports</a
+      >
+      {% endif %}
+    </div>
+
+    <!-- Content -->
+    <div class="flex-grow p-4">
+      <div>
+        <div id="profile-data"></div>
+      </div>
+      <h2>Cases</h2>
+      <div class="center-table table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Location</th>
+              <th>Parties Involved</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for incident in incidents %}
+            <tr>
+              <td>{{ incident.date }}</td>
+              <td>{{ incident.time }}</td>
+              <td>{{ incident.location }}</td>
+              <td>{{ incident.parties_involved }}</td>
+              <td>{{ incident.description }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %}
+        <ul class="flashes">
+          {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
+      </div>
+    </div>
+  </body>
+</html>

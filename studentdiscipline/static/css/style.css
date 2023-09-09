@@ -1,0 +1,51 @@
+/* styles.css */
+.text-h1 {
+  @apply text-6xl font-sans-pro font-bold;
+}
+
+.text-h2 {
+  @apply text-5xl font-sans-pro font-bold;
+}
+
+.text-h3 {
+  @apply text-4xl font-sans-pro font-bold;
+}
+
+.text-h4 {
+  @apply text-3xl font-sans-pro font-bold;
+}
+
+.text-h5 {
+  @apply text-2xl font-sans-pro font-bold;
+}
+
+.text-h6 {
+  @apply text-xl font-sans-pro font-bold;
+}
+
+.text-p {
+  @apply text-base font-sans-pro;
+}
+
+/* BUTTON */
+.btn-primary {
+  @apply px-5 py-2 rounded-md bg-primary text-white font-sans-pro;
+}
+
+.btn-secondary {
+  @apply px-5 py-2 rounded-md bg-secondary text-white font-sans-pro;
+}
+
+.btn-warning {
+  @apply px-5 py-2 rounded-md bg-warning text-white font-sans-pro;
+}
+
+.btn-update {
+  @apply px-5 py-2 rounded-md bg-warning text-white font-sans-pro;
+}
+
+.smooth-transition {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Other custom styles */
