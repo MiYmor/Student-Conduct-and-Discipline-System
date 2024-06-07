@@ -1,4 +1,4 @@
-# student-performance-main
+# student-conduct-main
 
 
 ### Setting up Virtual Environment
